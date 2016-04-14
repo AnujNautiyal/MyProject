@@ -1,0 +1,44 @@
+mysql> show tables;
++----------------+
+| Tables_in_Blog |
++----------------+
+| Blog           |
+| Comments       |
+| Person         |
++----------------+
+
+mysql> desc Blog;
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| Id      | int(11)      | NO   | PRI | NULL    | auto_increment |
+| Name    | varchar(255) | YES  |     | NULL    |                |
+| Content | text         | YES  |     | NULL    |                |
+| Author  | varchar(255) | YES  |     | NULL    |                |
+| Created | date         | YES  |     | NULL    |                |
++---------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> desc Comments;
++---------+--------------+------+-----+---------+----------------+
+| Field   | Type         | Null | Key | Default | Extra          |
++---------+--------------+------+-----+---------+----------------+
+| Id      | int(11)      | NO   | PRI | NULL    | auto_increment |
+| Bid     | int(11)      | YES  | MUL | NULL    |                |
+| Content | text         | YES  |     | NULL    |                |
+| Author  | varchar(255) | YES  |     | NULL    |                |
+| Vote    | int(11)      | YES  |     | NULL    |                |
++---------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> desc Person;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| Id       | int(11)      | NO   | PRI | NULL    | auto_increment |
+| Name     | varchar(255) | YES  |     | NULL    |                |
+| Email    | varchar(255) | YES  |     | NULL    |                |
+| Password | varchar(255) | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+

@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  center
+   h1 First Page
+   br
+  h2 #{Res}
+  br
+  br
+  form(name="input",action="/login",  method="get")
+    |Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    input(type="text", name="email")
+    br
+    |Password:&nbsp
+    input(type="password", name="pswd")
+    br
+    br
+    input(type="submit", value="Login")
+  br
+  br
+  br
+  form(name="input",action="/register",  method="get")
+    |Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    input(type="text", name="remail")
+    br
+    |Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    input(type="text", name="rname")
+    br
+    |Password:&nbsp
+    input(type="password", name="rpswd")
+    br
+    br
+    input(type="submit", value="Register")
+    br
+    br
+    br
+  p Forgot Password:
+  form(name="input",action="/forgot",  method="get")
+      |Email:
+      input(type="text", name="femail")
+      br
+      br
+      input(type="submit", value="Send Link")

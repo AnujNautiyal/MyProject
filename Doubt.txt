@@ -1,0 +1,15 @@
+1) I am firing same query from Db many time how to optimize. Where should I keep data in cache or session variable.
+2) When to clear session.
+3) When to stop request and response, and is it ok to redirect, as I have used it heavily.
+4) When to connect and disconnect mysql. And if there are many user how to mantain them
+5) I have to get data from different table, how to do it parallely and give to UI when done. Right now I am getting data parallely then waiting for all data to come then showing it. I want to do get data from table A shows, get data from Table B shows and so on.
+5) For calling function in series, what to use next() or callback.
+	ex:- app.get("Route", function(){
+		A();
+	     });
+	     
+	    OR
+
+	    app.get("route",A);
+6)
+		

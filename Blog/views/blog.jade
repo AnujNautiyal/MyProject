@@ -1,0 +1,50 @@
+extends layout
+
+block content
+  center
+   h1 #{Article.Name}
+  br
+  - if (typeof(Logout) !== 'undefined'){
+    <a href="http://localhost:3001/home">Home</a>
+    br
+    br
+    form(name="Logout",action="/logoutUser",  method="get")
+      input(type="submit", value="Logout" name="mAction")
+  - }
+  - else
+    <a href="http://localhost:3001/">Home</a>
+  br
+  b
+   |Author:&nbsp #{Article.Author}
+  br
+  br
+  |#{Article.Content}
+  br
+  br
+  br
+  form(name="input",action="/comment",  method="post")
+   input(type="hidden", name="Bid", value= Article.Id )
+   textarea(rows="10" cols="50", name="Content")
+   br
+   |&nbsp&nbsp&nbsp&nbsp
+   input(type="submit", value="Comment")
+   br
+   br
+  - each comment in Comments
+       |#{comment.Content} by
+       b
+        |#{comment.Author}
+       |&nbsp&nbsp
+       b
+        |#{comment.Vote}  Like
+       br
+       form(name="input2",action="/comment",  method="get")
+        input(type="hidden", name="Id", value= comment.Id )
+        input(type="hidden", name="Bid", value= comment.Bid )
+        input(type="hidden", name="Vote", value= comment.Vote )
+        - if (typeof(email) !== 'undefined' && email == comment.Author){
+            input(type="submit", value="Delete" name="Action")
+        - }
+        |&nbsp&nbsp&nbsp
+        input(type="submit", value="Like" name="Action")
+       br

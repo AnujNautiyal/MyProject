@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 First Page
+  p Welcome to Forgot Page
+  p #{Res}
+
+  form(name="input",action="/fpswd",  method="get")
+    |New Password:
+    input(type="password", name="pswd")
+    br
+    input(type="hidden", name="email", value= email )
+    br
+    br
+    input(type="submit", value="Change")

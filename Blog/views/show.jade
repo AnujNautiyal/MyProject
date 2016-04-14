@@ -1,0 +1,49 @@
+extends layout
+
+block content
+  center
+    h1 First Page
+    |#{msg}
+    form(name="Login",action="/loginUser",  method="post")
+      |Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      input(type="text", name="lemail")
+      br
+      |Password:&nbsp
+      input(type="password", name="lpswd")
+      br
+      br
+      input(type="submit", value="Login")
+    br
+    br
+    form(name="Register",action="/registerUser",  method="post")
+      |Email:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      input(type="text", name="remail")
+      br
+      |Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      input(type="text", name="rname")
+      br
+      |Password:&nbsp
+      input(type="password", name="rpswd")
+      br
+      br
+      input(type="submit", value="Register")
+      br
+  form(name="Post",action="/blogTemplate",  method="get")
+    input(type="submit", value="New Post")
+  h3 Old Posts
+  |&nbsp&nbsp&nbsp<a href="http://localhost:3001/show?type=Created">Sort by Date</a> made this default
+  |&nbsp&nbsp&nbsp<a href="http://localhost:3001/show?type=Name">Sort by Name</a>
+  |&nbsp&nbsp&nbsp<a href="http://localhost:3001/show?type=Author">Sort by Author</a>
+  ul
+  - if (typeof(results) !== 'undefined'){
+    - each result in results
+      li   <a href="http://localhost:3001/blog?id= #{result.Id}""> #{result.Name}</a>  by #{result.Author}
+  - }
+  br
+  form(name="Input",action="/show",  method="get")
+    - if (typeof(next) !== 'undefined'){
+      input(type="submit", value="Next" name="Action")
+    - }
+    - if (typeof(prev) !== 'undefined'){
+      input(type="submit", value="Prev" name="Action")
+    - }

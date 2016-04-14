@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  center
+    h1 First Page
+  br
+  form(name="Logout",action="/logoutUser",  method="get")
+    input(type="submit", value="Logout" name="Action")
+  form(name="Post",action="/blogTemplate",  method="get")
+    input(type="submit", value="New Post")
+  h3 My Posts
+  |&nbsp&nbsp&nbsp<a href="http://localhost:3001/home?mtype=Created">Sort by Date</a>
+  |&nbsp&nbsp&nbsp<a href="http://localhost:3001/home?mtype=Name">Sort by Name</a>
+  //|&nbsp&nbsp&nbsp<a href="http://localhost:3001/home?mtype=Author">Sort by Author</a>
+  ul
+  - if (typeof(mresults) !== 'undefined'){
+    - each mresult in mresults
+      li   <a href="http://localhost:3001/blog?id= #{mresult.Id}""> #{mresult.Name}</a>  by #{mresult.Author}
+  - }
+  br
+  form(name="mSearch",action="/home",  method="get")
+    - if (typeof(mnext) !== 'undefined'){
+      input(type="submit", value="Next" name="mAction")
+    - }
+    - if (typeof(mprev) !== 'undefined'){
+      input(type="submit", value="Prev" name="mAction")
+    - }
+  br
+  h3 Other Posts
+  |&nbsp&nbsp&nbsp<a href="http://localhost:3001/home?otype=Created">Sort by Date</a>
+  |&nbsp&nbsp&nbsp<a href="http://localhost:3001/home?otype=Name">Sort by Name</a>
+  |&nbsp&nbsp&nbsp<a href="http://localhost:3001/home?otype=Author">Sort by Author</a>
+  ul
+  - if (typeof(oresults) !== 'undefined'){
+    - each oresult in oresults
+      li   <a href="http://localhost:3001/blog?id= #{oresult.Id}""> #{oresult.Name}</a>  by #{oresult.Author}
+  - }
+  br
+  form(name="oSearch",action="/home",  method="get")
+    - if (typeof(onext) !== 'undefined'){
+      input(type="submit", value="Next" name="oAction")
+    - }
+    - if (typeof(oprev) !== 'undefined'){
+      input(type="submit", value="Prev" name="oAction")
+    - }

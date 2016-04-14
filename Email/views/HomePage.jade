@@ -1,0 +1,14 @@
+//Home Page of logged in user
+extends layout
+
+block content
+  center
+    h1 Hello #{title}
+  marquee
+    p Welcome to Home Page
+  h2 #{message}
+  br
+  br
+  form(name="input",action="/logout",  method="get")
+    input(type="submit", value="Logout")
+  br

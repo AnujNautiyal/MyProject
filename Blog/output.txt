@@ -1,0 +1,19 @@
+
+> blog@1.0.0 start /home/anujnautiyal/learn/blog
+> node index.js
+
+Example app listening on port 3001!
+DB_ connected as id 419
+SELECT * FROM Blog
+DB_ connected as id 420
+SELECT * FROM Blog
+DB_ connected as id 421
+SELECT * FROM Blog
+DB_ connected as id 422
+SELECT * FROM Blog
+DB_ connected as id 423
+SELECT * FROM Blog
+DB_ connected as id 424
+SELECT * FROM Blog
+DB_ connected as id 425
+SELECT * FROM Blog
